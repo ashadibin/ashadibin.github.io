@@ -6,6 +6,10 @@
 		<title>IK Library: Tooltip</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link href="assets/ik_lib.css" rel="stylesheet" type="text/css">
+		<style>
+		span[aria-hidden="true"] {display:none;}
+span[aria-hidden="false"] {display:block;}
+</style>
 		<script src="assets/ik_utils.js"></script>
 		<script src="assets/ik_tooltip.js"></script>
 		<script>
@@ -17,15 +21,29 @@
 				$(".hastooltip").ik_tooltip();
 				
 			});
+			$(document).ready(function(){
+$("#error-message").attr("aria-hidden","false");
+			$("input#Name").focus(function(){
+$("#error-message").attr("aria-hidden","false");
+});
 			
+			$("input#Name").mouseover(function(){
+$("#error-message").attr("aria-hidden","false");
+});
+	$("input#Name").mouseleave(function(){
+$("#error-message").attr("aria-hidden","true");
+});
 		</script>
 	</head>
 	<body>
 		<main>
 			<a href="index.html">&larr; Index</a>
 			<h1>Tooltip</h1>
-			<p>Lorem ipsum dolor sit <a href="#" class="hastooltip" title="This is a sample link that provides additional information to users by means of a tooltip.">tooltip</a>, consectetur adipiscing elit. Sed blandit pellentesque felis eget venenatis. Duis venenatis consectetur lacinia. Proin elementum eu justo vel dignissim.</p>
-			<p><input type="text" placeholder="Name" value="" class="hastooltip" title="Please enter your name here"></p>
+			<p>Lorem ipsum dolor sit <a href="#" class="hastooltip"   title="This is a sample link that provides additional information to users by means of a tooltip.">tooltip</a>, consectetur adipiscing elit. Sed blandit pellentesque felis eget venenatis. Duis venenatis consectetur lacinia. Proin elementum eu justo vel dignissim.</p>
+			<p><input type="text" id="Name" placeholder="Name" value="" aria-live="off" aria-describedby="error-message" role="tooltip"   class="hastooltip" title="Please enter your name here" ></p>
+			<span id="error-message" style="display:none" >
+Please enter your name here</span>
+			
 		</main>
 	</body>
 </html>

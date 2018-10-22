@@ -13,16 +13,18 @@
 			//var $pb, timer;
 			
 			$(document).ready(function() {
+			$elem.attr({'aria-multiselectable': !this.options.autoCollapse});
 				
 				$(".multiselect").ik_accordion();
 				$(".singleselect").ik_accordion({ 'autoCollapse': true});
 				
 			});
 			
+			
 		</script>
 	</head>
 	<body>
-		<main>
+	<main>
 			<a href="index.html">&larr; Index</a>
 			<h1>Accordion</h1>
 			<h2>autoCollapse = false</h2>

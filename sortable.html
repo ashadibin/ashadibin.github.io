@@ -13,7 +13,14 @@
 			$(document).ready(function() {
 				
 				$(".list").ik_sortable();
-				
+		     $('<div/>') // add div element to be used with aria-describedby attribute of the menu
+    .text(plugin.options.instructions) // get instruction text from plugin options
+    .addClass('ik_readersonly') // hide element from visual display
+    .attr({
+    'id': id + '_instructions',
+    'aria-hidden': 'false'  // hide element from screen readers to prevent it from being read twice
+})
+    .appendTo($elem);
 			});
 			
 		</script>
@@ -23,17 +30,20 @@
 			<a href="index.html">&larr; Index</a>
 			<h1>Sortable List</h1>
 			<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Sed blandit pellentesque felis eget venenatis. Duis venenatis consectetur lacinia. Proin elementum eu justo vel dignissim.</p>
-			<ul class="list">
-				<li>Apples</li>
-				<li>Oranges</li>
-				<li>Bananas</li>
-				<li>Pears</li>
-				<li>Plums</li>
-				<li>Peaches</li>
-				<li>Cherries</li>
-				<li>Persimmons</li>
-				<li>Quinces</li>
+			
+			<ul class="list" role="list" aria-labelledby="[instructions div id]">
+			
+				<li role="listitem" tabindex="0" aria-label="Use arrow keys to select a list item,  ' and modifier plus' + arrow keys to move it to a new position.">Apples</li>
+				<li role="listitem" tabindex="0" >Oranges</li>
+				<li role="listitem" tabindex="0"  >Bananas</li>
+				<li role="listitem" tabindex="0">Pears</li>
+				<li role="listitem" tabindex="0" >Plums</li>
+				<li role="listitem" tabindex="0" >Peaches</li>
+				<li role="listitem" tabindex="0">Cherries</li>
+				<li role="listitem" tabindex="0" >Persimmons</li>
+				<li role="listitem" tabindex="0" >Quinces</li>
 			</ul>
+			
 		</main>
 	</body>
 </html>

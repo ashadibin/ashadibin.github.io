@@ -58,12 +58,13 @@
 			<a href="index.html">&larr; Index</a>
 			<h1>Progress Bar</h1>
 			<p>
-				<div id="pb_lbl">Click on <strong>Run Demo</strong> to simulate download.</div>
+				<div id="pb_lbl" >Click on <strong>Run Demo</strong> to simulate download.</div>
 			</p>
 			<p>
 				<div id="pb"></div>
 			</p>
-			<button id="btnTest" onclick="runTest(event);">Run Demo</button>
+			<button id="btnTest" onclick="runTest(event);" aria-describedby="hh" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">Run Demo</button>
+			<span id="hh" style="display:none">Press spacebar, or Enter to get progress</span>
 		</main>
 	</body>
 </html>
