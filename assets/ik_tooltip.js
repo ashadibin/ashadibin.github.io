@@ -45,7 +45,7 @@
 				.removeAttr('title') // remove title to prevent it from being read
 				.after($tooltip)
 				.on('mouseover', function(event) {
-					
+					$("#error-message").attr("aria-hidden","false");
 					var y, x;
 					
 					y = $elem.position().top - $tooltip.height() - 20;
